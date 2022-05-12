@@ -16,7 +16,6 @@ struct ContentView: View {
     private let circleHeight = UIScreen.main.bounds.height / 6
     
     @State private var currentLight = CurrentLight.red
-    @State private var buttonTitle = "START"
     @State private var redLightOn = false
     @State private var yellowLightOn = false
     @State private var greenLightOn = false
@@ -34,16 +33,13 @@ struct ContentView: View {
                           color: .green, opacity: greenLightOn ? 1 : 0.3)
                 Spacer()
                 ButtonView(width: circleWidth, height: circleHeight / 2.5,
-                           action: buttonTapped, title: buttonTitle)
+                           action: buttonTapped,
+                           title: (!redLightOn && !yellowLightOn && !greenLightOn) ? "START" : "NEXT" )
             }.padding()
         }
     }
     
     private func buttonTapped() {
-        if buttonTitle == "START" {
-            buttonTitle = "NEXT"
-        }
-        
         switch currentLight {
         case .red:
             greenLightOn = false

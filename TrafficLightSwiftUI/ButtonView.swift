@@ -16,15 +16,13 @@ struct ButtonView: View {
     
     var body: some View {
         Button(action: action) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: width,
-                           height: height, alignment: .bottom)
-                    .overlay(RoundedRectangle(cornerRadius: 15)
-                        .stroke(.white, lineWidth: 4))
-                Text(title)
-                    .foregroundColor(.white)
-            }
+            Text(title)
+                .foregroundColor(.white)
+                .frame(width: width, height: height)
+                .background(.blue)
+                .cornerRadius(15)
+                .overlay(RoundedRectangle(cornerRadius: 15)
+                    .stroke(.white, lineWidth: 4))
         }
     }
 }
