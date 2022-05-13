@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct ColorView: View {
-    let width: Double
-    let height: Double
+    let color: Color
+    let isOn: Bool
     
-    var color: Color
-    var opacity: Double
+    private let size = UIScreen.main.bounds.width / 3
     
     var body: some View {
         Circle()
-            .foregroundColor(color.opacity(opacity))
-            .frame(width: width, height: height)
+            .foregroundColor(color.opacity(isOn ? 1 : 0.3))
+            .frame(width: size, height: size)
             .overlay(Circle().stroke(.white, lineWidth: 4))
     }
 }

@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ButtonView: View {
-    let width: Double
-    let height: Double
+    let action: () -> Void
+    let title: String
     
-    let action: () -> ()
-    var title: String
+    private let size = UIScreen.main.bounds.width / 3
     
     var body: some View {
         Button(action: action) {
             Text(title)
                 .foregroundColor(.white)
-                .frame(width: width, height: height)
+                .frame(width: size, height: size / 2.5)
                 .background(.blue)
                 .cornerRadius(15)
                 .overlay(RoundedRectangle(cornerRadius: 15)
