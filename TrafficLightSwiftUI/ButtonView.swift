@@ -20,8 +20,10 @@ struct ButtonView: View {
                 .frame(width: size, height: size / 2.5)
                 .background(.blue)
                 .cornerRadius(15)
-                .overlay(RoundedRectangle(cornerRadius: 15)
-                    .stroke(.white, lineWidth: 4))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 15)
+                    .stroke(.white, lineWidth: 4)
+                )
         }
     }
 }

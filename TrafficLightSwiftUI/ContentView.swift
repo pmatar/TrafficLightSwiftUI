@@ -7,10 +7,11 @@
 
 import SwiftUI
 
+enum CurrentLight {
+    case red, yellow, green
+}
+
 struct ContentView: View {
-    enum CurrentLight {
-        case red, yellow, green
-    }
     
     @State private var currentLight: CurrentLight?
     
@@ -25,7 +26,9 @@ struct ContentView: View {
                           isOn: currentLight == .yellow)
                 ColorView(color: .green,
                           isOn: currentLight == .green)
+                
                 Spacer()
+                
                 ButtonView(action: buttonTapped,
                            title: currentLight == nil ? "START" : "NEXT")
             }.padding()
