@@ -8,12 +8,12 @@
 import SwiftUI
 
 enum CurrentLight {
-    case red, yellow, green
+    case red, yellow, green, none
 }
 
 struct ContentView: View {
     
-    @State private var currentLight: CurrentLight?
+    @State private var currentLight = CurrentLight.none
     
     var body: some View {
         ZStack {
@@ -30,13 +30,13 @@ struct ContentView: View {
                 Spacer()
                 
                 ButtonView(action: buttonTapped,
-                           title: currentLight == nil ? "START" : "NEXT")
+                           title: currentLight == .none ? "START" : "NEXT")
             }.padding()
         }
     }
     
     private func buttonTapped() {
-        if currentLight == nil {
+        if currentLight == .none {
             currentLight = .green
         }
         
